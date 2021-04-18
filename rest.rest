@@ -1,0 +1,2 @@
+### GET Chuck Norris api data
+GET http://localhost:5000/api/get-joke

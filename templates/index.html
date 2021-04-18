@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block head %}
+<title>Home page</title>
+{% endblock %}
+
+<!-- Body -->
+{% block body %}
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Chuck Norris</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <!-- Post save joke -->
+        <form action="/post-joke" method="POST">
+          <input type="hidden" name="joke-input" id="joke-input" />
+          <div class="mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Your name"
+            />
+          </div>
+          <input
+            type="submit"
+            value="Save"
+            class="btn btn-primary btn-sm mt-4"
+          />
+        </form>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+
+<!-- page content -->
+<div class="container">
+  <h1 class="m-5">Chuck Norris</h1>
+  <div class="row">
+    <div class="col align-self-center">
+      {% if message %}
+      <div class="alert alert-danger" role="alert">Please enter your name</div>
+      {% endif %}
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <button
+            class="btn btn-outline-primary mb-3"
+            id="get-joke-handler"
+            onclick=""
+          >
+            Get New
+          </button>
+          <p class="card-text" id="joke">{{joke}}</p>
+
+          <!-- Button trigger modal -->
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Save To Favorites
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

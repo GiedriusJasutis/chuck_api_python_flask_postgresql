@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block head %}
+<title>Saved</title>
+{% endblock %}
+
+<!-- Body -->
+{% block body %}
+<div class="container">
+  <div class="row">
+    {% for joke in jokes %}
+    <div class="col-sm-12 col-lg-4 border border-2 p-5 mt-4">
+      <h4>{{joke.name}} likes</h4>
+      <div class="mb-3">{{joke.joke}}</div>
+      <a href="/delete/{{joke.id}}" class="btn btn-danger">Delete</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

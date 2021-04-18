@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+<!-- title -->
+{% block head %}
+<title>Success</title>
+{% endblock %}
+
+<!-- Body -->
+{% block body %}
+<div class="container">
+  <h1 class="m-5">Joke Was Saved Successfully</h1>
+  <h3>{{name}} likes</h3>
+  <p>{{joke}}</p>
+  <a href="/" class="btn btn-primary">Search Again</a>
+  <a href="/saved" class="btn btn-primary">Go To Favorites</a>
+</div>
+{% endblock %}
